@@ -1,0 +1,85 @@
+[print]
+name = Printrbot_1405_300uM_Cura
+defaultQuality = xCQVJSX0k8WARYfiywZTofuvJCXd3MCb
+travelSpeedMin = 110
+travelSpeedMax = 110
+firstLayerSpeedMin = 20
+firstLayerSpeedMax = 20
+infillSpeedMin = 60
+infillSpeedMax = 60
+infillType = 0
+innerPerimeterMin = 30
+innerPerimeterMax = 30
+outerPerimeterMin = 20
+outerPerimeterMax = 20
+printSpeedMin = 60
+printSpeedMax = 60
+nozzleDiameter = 0
+gcodeFlavour = 0
+retractionCombing = True
+multiVolumeOverlap = 0
+cutOffObjectBottom = 0
+shellThickness = 0.6
+infillTopBottomThickness = 0.6
+infillDensityPercent = 20
+supportType = 0
+platformAdhesion = 0
+dualExtrusion = 0
+wipeAndPrimeTower = True
+oozeShield = False
+enableRetraction = True
+retractionSpeed = 30
+retractionDistance = 3
+multiExtruderSwitchAmount = 16
+startGCode = """
+G28 X0 Y0; Home extruder
+G92 E0 ; Reset extruder position
+"""
+endGCode = """
+M104 S0 ; turn off temperature
+G28 X0  ; home X axis
+M84     ; disable motors
+"""
+preSwitchExtruderCode = 
+postSwitchExtruderCode = 
+wipeAndPrimeTowerVolume = 15
+retractionMinimumTravel = 2
+minimumExtrusionBeforeRetract = 0.02
+zhop = 0
+skirtLineCount = 3
+skirtDistance = 1
+skirtMinimumLength = 0
+solidInfillTop = True
+solidInfillBottom = True
+infillOverlapPercent = 15
+supportStructureType = 0
+supportOverhang = 45
+supportFillPercent = 20
+supportDistanceXY = 0.8
+supportDistanceZ = 0.15
+supportExtruder = -1
+spiralizeOuterContour = False
+brimWidth = 4
+raftExtraMargin = 4
+raftLineSpacing = 1
+raftBaseThickness = 0.3
+raftBaseWidth = 0.6
+raftInterfaceThickness = 0.2
+raftInterfaceLineWidth = 0.2
+raftAirGap = 0
+raftAirGapLayer0 = 0.2
+raftSurfaceLayer = 1
+fixCombineEverythingA = True
+fixCombineEverythingB = False
+fixKeepOpenFaces = False
+fixExtensiveStitching = False
+fanFullAtHeight = 0.5
+minimumSpeed = 10
+coolHeadLift = False
+numQuality = 1
+[quality_0]
+name = 0.3 mm
+signature = xCQVJSX0k8WARYfiywZTofuvJCXd3MCb
+layerHeight = 0.3096
+layer0widthPercent = 200
+firstLayerHeight = 0.35

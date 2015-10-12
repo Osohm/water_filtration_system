@@ -1,0 +1,14 @@
+# Ignore list for Freecad
+
+# No project thoughts and notes
+# These are more brainstorming notes, not that useful to others.
+water_filtration_notes
+
+# No intermediary/backup .fcstd1 files
+*.fcstd1
+
+# No pre-compiled python .pyc files.
+*.pyc
+
+# No g-code files.
+*.g

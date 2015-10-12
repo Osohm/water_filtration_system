@@ -1,0 +1,94 @@
+'''
+this macro simply is a nice simple way to generate an array of circles 
+with all of the required parametters and the constraints all completed.
+units are all in millimeters.
+'''
+
+import FreeCAD, FreeCADGui, Part
+import sys
+from PyQt4 import QtGui,QtCore
+
+
+def gen_array_of_circles(number_of_rows, number_of_columns, x_start_origin, y_start_origin, 
+							x_separation, y_separation, circle_radius, active_document, current_sketch):
+	
+	# vars to keep track of where we should put our new circle.	
+	x_distance = 0
+	y_distance = 0
+
+	# then it should be as simple as, for every row and column
+	for row_number in range (0, number_of_rows):
+		for column_number in range(0, number_of_columns):
+			
+			# compute our desired circle location
+			x_location = x_start_origin + x_distance
+			y_location = y_start_origin + y_distance	
+
+			# add the circle with our desired location and radius
+			
+			current_geometry = current_sketch.addGeometry(Part.Circle(App.Vector(
+				x_location, y_location,0),
+				App.Vector(0,0,1),circle_radius))
+
+			# add the radius constraint.
+			current_sketch.addConstraint(Sketcher.Constraint('Radius',current_geometry, circle_radius))
+
+			# add the y distance contraint.
+			current_sketch.addConstraint(Sketcher.Constraint('DistanceY',-1,1,current_geometry,3,y_location)) 
+
+			# add the x distance constraint.
+			current_sketch.addConstraint(Sketcher.Constraint('DistanceX',-1,1,current_geometry,3,x_location)) 
+
+
+			# Increment our x distance, to place the circle 
+			# in the next column.
+			x_distance = x_distance + x_separation
+
+		# now increment our y distance to put the circle in the next row
+		y_distance = y_distance + y_separation
+		
+		# Restart the x distance, start putting circles from the first column.
+		x_distance = 0
+
+	# now recompute so that we can see the changes.
+	active_document.recompute()
+
+	return
+
+def main():
+	
+	#define our initial parametters for our array of circles.
+
+	# number of Rows
+	number_of_rows = 4
+	
+	# number of _columns
+	number_of_columns = 8
+	
+	# x_axis start origin, position to put the first bottom left circle.
+	x_start_origin = -21.5
+	
+	# y_axis start origin, position to put the first bottom left circle.
+	y_start_origin = 20.25
+	
+	# circles x center to center separation.
+	x_separation = 6.15
+
+	# circles y center to center separation.
+	y_separation = 5.50 
+	
+	# radius of everyone of our circles.
+	circle_radius = 2.25
+	
+	active_document = App.ActiveDocument
+
+	# we have to also get the current sketch.
+	current_sketch = active_document.Sketch021
+	
+	gen_array_of_circles(number_of_rows, number_of_columns, x_start_origin, y_start_origin, 
+							x_separation, y_separation, circle_radius, active_document, current_sketch)
+
+
+# Application main entry on module execution. 	
+if __name__ == "__main__":
+	main()
