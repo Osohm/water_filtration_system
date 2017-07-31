@@ -2,7 +2,7 @@ ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('FreeCAD Model'),'2;1');
 FILE_NAME(
-'/media/camilo/Main_Storage/Workspaces/Public_Workspaces/CAD_
+'/media/camilo/data/Workspaces/Public_Workspaces/CAD_
 Design/FreeCAD/Turtles_Pump_Stage/Turtles_Pump_Stage.step',
   '2015-05-09T16:57:33',('Author'),(''),
   'Open CASCADE STEP processor 6.7','FreeCAD','Unknown');
